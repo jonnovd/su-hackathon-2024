@@ -26,10 +26,11 @@ def populate_df(data_dir: str, df: pd.DataFrame, cols: str) -> pd.DataFrame:
 
                     line = f.readline()
 
+    os.chdir("../")
     return df
 
 
-def main(data_dir: str):
+def main(data_dir: str, tl_csv: str):
 
     ta_cols = ["Pic", "Class", "X", "Y", "Width", "Height"]
     ta_df = pd.DataFrame(columns=ta_cols)
@@ -37,9 +38,13 @@ def main(data_dir: str):
     ta_dir = f"{data_dir}/train_annotations"
     ta_df = populate_df(ta_dir, ta_df, ta_cols)
 
+    tl_df = pd.read_csv(tl_csv)
+
     print(f"Training Annotations Dataframe:\n{ta_df}")
+    print(f"\nTraining Labels dataframe\n{tl_df}")
 
 
 if __name__ == "__main__":
     dir = "data"
-    main(dir)
+    train_labels = "train_labels.csv"
+    main(dir, train_labels)
