@@ -34,14 +34,13 @@ def main(data_dir: str, tl_csv: str):
 
     ta_cols = ["Pic", "Class", "X", "Y", "Width", "Height"]
     ta_df = pd.DataFrame(columns=ta_cols)
-
     ta_dir = f"{data_dir}/train_annotations"
     ta_df = populate_df(ta_dir, ta_df, ta_cols)
 
     tl_df = pd.read_csv(tl_csv)
 
     print(f"Training Annotations Dataframe:\n{ta_df}")
-    print(f"\nTraining Labels dataframe\n{tl_df}")
+    print(f"\nTraining Labels Dataframe\n{tl_df}")
 
 
 if __name__ == "__main__":
