@@ -3,7 +3,6 @@ from PIL import Image
 import numpy as np
 import io
 
-# Replace 'file_path.csv' with the actual path to your CSV file
 df = pd.read_csv('data/train_labels.csv')
 
 df_new = df.drop(df.index[list(range(40, 184)) + [214] + list(range(234, 237))
@@ -51,5 +50,4 @@ for i in range(len(df_new)):
         df_new['img_path'] = df_new['Pothole number'].apply(lambda pot_num: f"data/train_images/p{pot_num}.jpg")
 
 
-# Print the entire DataFrame
 print(df_new)
