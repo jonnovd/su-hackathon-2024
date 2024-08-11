@@ -1,8 +1,6 @@
 import pandas as pd
-from PIL import Image
-import numpy as np
-import io
 
+# Replace 'file_path.csv' with the actual path to your CSV file
 df = pd.read_csv('data/train_labels.csv')
 
 df_new = df.drop(df.index[list(range(40, 184)) + [214] + list(range(234, 237))
@@ -23,31 +21,32 @@ for i in range(len(df_new)):
     df_txt = pd.read_csv(f"data/train_annotations/p{pot_num}.txt", delimiter=' ', header=None)
     df_txt.columns = ['object-class', 'x', 'y', 'width', 'height']
     if df_txt.iloc[0].iloc[0] == 0.0:
-        df_new.loc[df_new['Pothole number'] == pot_num, ['x_0', 'y_0', 'width_0']] = df_txt.iloc[0].iloc[[1, 2, 3]].values
+        df_new.loc[df_new['Pothole number'] == pot_num, ['x_0', 'y_0', 'width_0', 'height_0']] = df_txt.iloc[0].iloc[[1, 2, 3, 4]].values
         df_new['img_path'] = df_new['Pothole number'].apply(lambda pot_num: f"data/train_images/p{pot_num}.jpg")
 
     if df_txt.iloc[0].iloc[0] == 1.0:
-        df_new.loc[df_new['Pothole number'] == pot_num, ['x_1', 'y_1', 'width_1']] = df_txt.iloc[0].iloc[[1, 2, 3]].values
+        df_new.loc[df_new['Pothole number'] == pot_num, ['x_1', 'y_1', 'width_1', 'height_1']] = df_txt.iloc[0].iloc[[1, 2, 3, 4]].values
         df_new['img_path'] = df_new['Pothole number'].apply(lambda pot_num: f"data/train_images/p{pot_num}.jpg")
 
     if df_txt.iloc[0].iloc[0] == 2.0:
-        df_new.loc[df_new['Pothole number'] == pot_num, ['x_2', 'y_2', 'width_2']] = df_txt.iloc[0].iloc[[1, 2, 3]].values
+        df_new.loc[df_new['Pothole number'] == pot_num, ['x_2', 'y_2', 'width_2', 'height_2']] = df_txt.iloc[0].iloc[[1, 2, 3, 4]].values
         df_new['img_path'] = df_new['Pothole number'].apply(lambda pot_num: f"data/train_images/p{pot_num}.jpg")
 
     if len(df_txt) == 2:
         if df_txt.iloc[0].iloc[0] == 1.0:
-            df_new.loc[df_new['Pothole number'] == pot_num, ['x_1', 'y_1', 'width_1']] = df_txt.iloc[0].iloc[[1, 2, 3]].values
+            df_new.loc[df_new['Pothole number'] == pot_num, ['x_1', 'y_1', 'width_1', 'height_1']] = df_txt.iloc[0].iloc[[1, 2, 3, 4]].values
             df_new['img_path'] = df_new['Pothole number'].apply(lambda pot_num: f"data/train_images/p{pot_num}.jpg")
 
         if df_txt.iloc[1].iloc[0] == 1.0:
-            df_new.loc[df_new['Pothole number'] == pot_num, ['x_1', 'y_1', 'width_1']] = df_txt.iloc[1].iloc[[1, 2, 3]].values
+            df_new.loc[df_new['Pothole number'] == pot_num, ['x_1', 'y_1', 'width_1', 'height_1']] = df_txt.iloc[1].iloc[[1, 2, 3, 4]].values
             df_new['img_path'] = df_new['Pothole number'].apply(lambda pot_num: f"data/train_images/p{pot_num}.jpg")
 
     if len(df_txt) == 3:
-        df_new.loc[df_new['Pothole number'] == pot_num, ['x_0', 'y_0', 'width_0']] = df_txt.iloc[0].iloc[[1, 2, 3]].values
-        df_new.loc[df_new['Pothole number'] == pot_num, ['x_1', 'y_1', 'width_1']] = df_txt.iloc[1].iloc[[1, 2, 3]].values
-        df_new.loc[df_new['Pothole number'] == pot_num, ['x_2', 'y_2', 'width_2']] = df_txt.iloc[2].iloc[[1, 2, 3]].values
+        df_new.loc[df_new['Pothole number'] == pot_num, ['x_0', 'y_0', 'width_0', 'height_0']] = df_txt.iloc[0].iloc[[1, 2, 3, 4]].values
+        df_new.loc[df_new['Pothole number'] == pot_num, ['x_1', 'y_1', 'width_1', 'height_1']] = df_txt.iloc[1].iloc[[1, 2, 3, 4]].values
+        df_new.loc[df_new['Pothole number'] == pot_num, ['x_2', 'y_2', 'width_2', 'height_2']] = df_txt.iloc[2].iloc[[1, 2, 3, 4]].values
         df_new['img_path'] = df_new['Pothole number'].apply(lambda pot_num: f"data/train_images/p{pot_num}.jpg")
 
 
-print(df_new)
+# Print the entire DataFrame
+print(df_new.iloc[0])
