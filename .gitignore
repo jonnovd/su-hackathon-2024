@@ -1,4 +1,8 @@
 *.DS_Store
+potholes.yaml
 /venv
 /spec
 /data
+/runs
+yolov8n.pt
+yolov8s.pt

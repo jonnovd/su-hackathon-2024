@@ -1,7 +1,17 @@
-path: C:\Users\dylan\PycharmProjects\Yolo_v8\dataset
+# Dylan's
+# path: C:\Users\dylan\PycharmProjects\Yolo_v8\dataset
 
-train: images\train
-val: images\val
+# train: images\train
+# val: images\val
+
+# nc: 3
+# names: ['pothole', 'L1', 'L2']
+
+# Jonno's paths
+path: ../dataset
+
+train: images/train
+val: images/val
 
 nc: 3
 names: ['pothole', 'L1', 'L2']
