@@ -46,3 +46,4 @@ for i in range(len(df_new)):
 df_new = df_new.fillna(0)
 df_new = df_new.drop(columns=["Pothole number"])
 print(df_new.iloc[0])
+df_new.to_csv('model_data.csv',index=False)
