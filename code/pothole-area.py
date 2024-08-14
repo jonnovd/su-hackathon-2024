@@ -6,21 +6,15 @@ def get_pothole_area(w0: float, h0:float, w1: float, h1:float)-> float:
     hypot = np.sqrt(w1*w1 + h1*h1)
 
     scale = 0.5 / hypot
-    w1_actual = scale * w1
-    h1_actual = scale * h1
 
-    w_ratio = w0/w1
-    h_ratio = h0/h1
-
-    w0_actual = w_ratio*w1_actual
-    h0_actual = h_ratio*h1_actual
+    w0_actual = w0*scale
+    h0_actual = h0*scale
 
     area = (w0_actual) * (h0_actual)
     return area
 
 
 def main(df_path: str):
-    print("MAIN")
 
     df = pd.read_csv(df_path)
     print(df)
@@ -46,5 +40,4 @@ def main(df_path: str):
 if __name__ == "__main__":
     path_to_dataframe = 'model_data.csv'
     main(path_to_dataframe)
-
 
