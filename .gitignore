@@ -2,5 +2,5 @@
 /venv
 /spec
 /data
+/runs
 yolov8*
-runs/
