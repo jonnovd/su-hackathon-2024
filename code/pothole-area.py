@@ -36,10 +36,15 @@ def main(df_path: str):
             h1 = df.loc[i, 'height_1']
             df.loc[i, 'pothole_area'] = get_pothole_area(w0, h0, w1, h1)
 
+    
+    df.to_csv('df_area.csv', index=False)
+
     #print(df)
-    print(df.loc[df['pothole_area'] != 0, :].head(30))
+    print(df.loc[df['pothole_area'] != 0, :])
 
 
 if __name__ == "__main__":
-    path_to_dataframe = '../model_data.csv'
+    path_to_dataframe = 'model_data.csv'
     main(path_to_dataframe)
+
+
