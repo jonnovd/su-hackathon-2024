@@ -38,6 +38,6 @@ def main(df_path: str):
 
 
 if __name__ == "__main__":
-    path_to_dataframe = 'model_data.csv'
+    path_to_dataframe = 'df_new.csv'
     main(path_to_dataframe)
 
