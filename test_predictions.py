@@ -23,6 +23,29 @@ test = df_test[['pothole_area']]
 
 
 def svr(X, test, y_train, df_test):
+    """
+    Support Vector Regression with Grid Search.
+
+    Trains a Support Vector Regressor (SVR) model on the provided training data using 
+    a grid search to optimize hyperparameters. The best model is then used to predict 
+    the target variable on the test data.
+
+    Parameters:
+    -----------
+    X : pandas.DataFrame
+        Features from the training dataset.
+    test : pandas.DataFrame
+        Features from the test dataset for prediction.
+    y_train : pandas.Series
+        Target variable (number of bags used) from the training dataset.
+    df_test : pandas.DataFrame
+        The test dataset, including the 'Pothole number' for output.
+
+    Outputs:
+    --------
+    - Saves predictions in a CSV file named 'predicted_pothole_bags.csv'.
+    - Prints the predicted values.
+    """
     param_grid = {
         'C': [0.1, 1, 10, 100, 1000],
         'epsilon': [0.001, 0.01, 0.1, 1],
@@ -50,6 +73,26 @@ def svr(X, test, y_train, df_test):
 
     
 def polynomial_regression_model(X_train, X_test, y_train):
+    """
+    Polynomial Regression with Grid Search.
+
+    Fits a polynomial regression model to the training data using grid search 
+    for hyperparameter tuning. The best model is used to predict the target 
+    variable on the test data.
+
+    Parameters:
+    -----------
+    X_train : pandas.DataFrame
+        Training features.
+    X_test : pandas.DataFrame
+        Test features for prediction.
+    y_train : pandas.Series
+        Training target variable.
+
+    Outputs:
+    --------
+    - Saves predictions in 'predicted_pothole_bags.csv'.
+    """
 
     pipeline = Pipeline([
         ('scaler', StandardScaler()),       
@@ -79,6 +122,27 @@ def polynomial_regression_model(X_train, X_test, y_train):
 
 
 def linear_regression_model(X_train, X_test, y_train, y_test):
+    """
+    Linear Regression Model.
+
+    Trains a linear regression model on the training data and predicts the 
+    target variable on the test data.
+
+    Parameters:
+    -----------
+    X_train : pandas.DataFrame
+        Training features.
+    X_test : pandas.DataFrame
+        Test features for prediction.
+    y_train : pandas.Series
+        Training target variable.
+    y_test : pandas.Series
+        Test target variable (not used in this function).
+
+    Outputs:
+    --------
+    - Saves predictions in 'predicted_pothole_bags.csv'.
+    """
     model = LinearRegression()
     model.fit(X_train, y_train)
     y_hat = model.predict(X_test)
@@ -92,6 +156,28 @@ def linear_regression_model(X_train, X_test, y_train, y_test):
 
 
 def gradient_boosting(X_train, X_test, y_train, y_test):
+    """
+    Gradient Boosting Regression with Grid Search.
+
+    Trains a Gradient Boosting Regressor on the provided training data using 
+    grid search to optimize hyperparameters. The best model is used to predict 
+    the target variable on the test data.
+
+    Parameters:
+    -----------
+    X_train : pandas.DataFrame
+        Training features.
+    X_test : pandas.DataFrame
+        Test features for prediction.
+    y_train : pandas.Series
+        Training target variable.
+    y_test : pandas.Series
+        Test target variable.
+
+    Outputs:
+    --------
+    - Saves predictions in 'predicted_pothole_bags.csv'.
+    """
     param_grid = {
         'n_estimators': [100, 200, 300],            
         'learning_rate': [0.01, 0.05, 0.1, 0.2],        
