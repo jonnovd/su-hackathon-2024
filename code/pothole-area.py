@@ -30,19 +30,20 @@ def main(df_path: str):
             h1 = df.loc[i, 'height_1']
             df.loc[i, 'pothole_area'] = get_pothole_area(w0, h0, w1, h1)
 
-    sorted_df = df.sort_values(by='Bags used', ascending=False)
+    #sorted_df = df.sort_values(by='Bags used', ascending=False)
     
-    df.to_csv('df_area.csv', index=False)
-    sorted_df.to_csv('df_area_sorted.csv', index=False)
+    df.to_csv('df_area_all_data_mm.csv.csv', index=False)
+    #sorted_df.to_csv('df_area_test_m.csv', index=False)
     
-    non_zero_df = sorted_df[sorted_df['pothole_area'] != 0]
-    non_zero_df.to_csv('df_area_non_zero.csv', index=False)
+    #non_zero_df = sorted_df[sorted_df['pothole_area'] != 0]
+    non_zero_df = df[df['pothole_area'] != 0]
+    non_zero_df.to_csv('df_area_test_m_non0.csv', index=False)
 
     #print(df)
     print(df.loc[df['pothole_area'] != 0, :])
 
 
 if __name__ == "__main__":
-    path_to_dataframe = 'df_new.csv'
+    path_to_dataframe = 'test_data.csv'
     main(path_to_dataframe)
 
