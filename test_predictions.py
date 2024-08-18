@@ -34,7 +34,7 @@ def svr(X, test, y_train, df_test):
     
     grid_search = GridSearchCV(estimator=model, param_grid=param_grid, cv=5, scoring='r2', verbose=2, n_jobs=-1)
     
-    grid_search.fit(X_train, y_train)
+    grid_search.fit(X, y_train)
     
     best_model = grid_search.best_estimator_
     
