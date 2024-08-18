@@ -1,6 +1,8 @@
 *.DS_Store
+potholes.yaml
 /venv
 /spec
 /data
 /runs
 yolov8*
+*.csv
