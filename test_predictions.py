@@ -22,7 +22,7 @@ y = df['Bags used']
 test = df_test[['pothole_area']]
 
 
-def svr(X_train, test, y_train, df_test):
+def svr(X, test, y_train, df_test):
     param_grid = {
         'C': [0.1, 1, 10, 100, 1000],
         'epsilon': [0.001, 0.01, 0.1, 1],
@@ -115,6 +115,6 @@ def gradient_boosting(X_train, X_test, y_train, y_test):
     })
     
     result_df.to_csv('predicted_pothole_bags.csv', index=False)
-    
-    
-#svr(X_train, test, y_train, y_test, df_test)
+
+
+svr(X, test, y, df_test)
