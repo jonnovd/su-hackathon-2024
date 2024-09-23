@@ -13,7 +13,7 @@ With only an image of a pothole, we aim to predict the number of cement bags nee
 - Run `merge_labels.py` in the merged_data folder to get only unique labels into train_labels.csv from the initial and supplementary data.
 - Folders containing all images, annotations, and labels from the initial and supplementary data were placed here.
 
-### code
+### Code
 - Scripts in this folder create the dataframes and csv files containing the features used to predict the number of bags in our prediction model.
 - Run `extract_data.py` to get all complete entries of the training data into a csv file
 - Run `pothole-area.py` to add the area of the potholes to this csv file
